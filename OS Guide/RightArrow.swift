@@ -24,8 +24,8 @@ class RightArrow: UIView {
         
         //// Rectangle 2 Drawing
         context?.saveGState()
-        context?.translate(x: 4.13, y: 30.02)
-        context?.rotate(byAngle: -90.14 * CGFloat(M_PI) / 180)
+        context?.translateBy(x: 4.13, y: 30.02)
+        context?.rotate(by: -90.14 * CGFloat(M_PI) / 180)
         
         let rectangle2Path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 11, height: 131.88))
         color3.setFill()
@@ -36,8 +36,8 @@ class RightArrow: UIView {
         
         //// Bezier 2 Drawing
         context?.saveGState()
-        context?.translate(x: 126, y: 41)
-        context?.rotate(byAngle: -91.49 * CGFloat(M_PI) / 180)
+        context?.translateBy(x: 126, y: 41)
+        context?.rotate(by: -91.49 * CGFloat(M_PI) / 180)
         
         let bezier2Path = UIBezierPath()
         bezier2Path.move(to: CGPoint(x: 10.6, y: 8.62))

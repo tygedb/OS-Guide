@@ -37,7 +37,7 @@ public class StyleKitName : NSObject {
         let color2 = UIColor(red: 0.011, green: 0.047, blue: 0.976, alpha: 1.000)
 
         //// Gradient Declarations
-        let gradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor], locations: [0.01, 1, 1, 1, 1])!
+        let gradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor] as CFArray, locations: [0.01, 1, 1, 1, 1])!
 
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -325,18 +325,18 @@ public class StyleKitName : NSObject {
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
 
-        let textFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelSize()), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelFontSize), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         let textTextRect: CGRect = CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight)
         context?.saveGState()
-        context?.clipTo(textRect)
+        context?.clip(to: textRect)
         textTextContent.draw(in: textTextRect, withAttributes: textFontAttributes)
         context?.restoreGState()
         
         ////// Text Text Inner Shadow
         context?.saveGState()
-        context?.clipTo(textRect)
+        context?.clip(to: textRect)
         context?.setShadow(offset: CGSize.zero, blur: 0)
         context?.setAlpha((shadow.shadowColor as! UIColor).cgColor.alpha)
         context?.beginTransparencyLayer(auxiliaryInfo: nil)
@@ -347,7 +347,7 @@ public class StyleKitName : NSObject {
 
         textOpaqueTextShadow.setFill()
 
-        let textInnerShadowFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelSize()), NSForegroundColorAttributeName: (shadow.shadowColor as! UIColor), NSParagraphStyleAttributeName: textStyle]
+        let textInnerShadowFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelFontSize), NSForegroundColorAttributeName: (shadow.shadowColor as! UIColor), NSParagraphStyleAttributeName: textStyle]
         textTextContent.draw(in: textTextRect, withAttributes: textInnerShadowFontAttributes)
 
         context?.endTransparencyLayer()
@@ -366,7 +366,7 @@ public class StyleKitName : NSObject {
         let color10 = UIColor(red: 0.667, green: 0.667, blue: 0.667, alpha: 0.572)
 
         //// Gradient Declarations
-        let gradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor], locations: [0.01, 1, 1, 1, 1])!
+        let gradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor] as CFArray, locations: [0.01, 1, 1, 1, 1])!
 
         //// Variable Declarations
         let pressed = true
@@ -385,11 +385,11 @@ public class StyleKitName : NSObject {
         let pressMeStyle = NSMutableParagraphStyle()
         pressMeStyle.alignment = .center
 
-        let pressMeFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 21), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: pressMeStyle]
+        let pressMeFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 21), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: pressMeStyle]
 
         let pressMeTextHeight: CGFloat = pressMeTextContent.boundingRect(with: CGSize(width: pressMeRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: pressMeFontAttributes, context: nil).size.height
         context?.saveGState()
-        context?.clipTo(pressMeRect)
+        context?.clip(to: pressMeRect)
         pressMeTextContent.draw(in: CGRect(x: pressMeRect.minX, y: pressMeRect.minY + (pressMeRect.height - pressMeTextHeight) / 2, width: pressMeRect.width, height: pressMeTextHeight), withAttributes: pressMeFontAttributes)
         context?.restoreGState()
 
@@ -445,11 +445,11 @@ public class StyleKitName : NSObject {
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 22), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 22), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         context?.saveGState()
-        context?.clipTo(textRect)
+        context?.clip(to: textRect)
         textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
         context?.restoreGState()
 
@@ -460,11 +460,11 @@ public class StyleKitName : NSObject {
         let text2Style = NSMutableParagraphStyle()
         text2Style.alignment = .left
 
-        let text2FontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: text2Style]
+        let text2FontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: text2Style]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
         context?.saveGState()
-        context?.clipTo(text2Rect)
+        context?.clip(to: text2Rect)
         text2TextContent.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
         context?.restoreGState()
 
@@ -475,11 +475,11 @@ public class StyleKitName : NSObject {
         let text3Style = NSMutableParagraphStyle()
         text3Style.alignment = .center
 
-        let text3FontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize()), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: text3Style]
+        let text3FontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: text3Style]
 
         let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).size.height
         context?.saveGState()
-        context?.clipTo(text3Rect)
+        context?.clip(to: text3Rect)
         text3TextContent.draw(in: CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
         context?.restoreGState()
     }
@@ -494,13 +494,13 @@ public class StyleKitName : NSObject {
 
         //// Oval 2 Drawing
         let oval2Path = UIBezierPath(ovalIn: CGRect(x: 68, y: 52, width: 35, height: 34))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval2Path.fill()
 
 
         //// Oval 3 Drawing
         let oval3Path = UIBezierPath(ovalIn: CGRect(x: 147, y: 52, width: 35, height: 34))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval3Path.fill()
 
 
@@ -519,14 +519,14 @@ public class StyleKitName : NSObject {
 
         bezierPath.lineJoinStyle = .round;
 
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezierPath.lineWidth = 6
         bezierPath.stroke()
 
 
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier2Path.lineWidth = 1
         bezier2Path.stroke()
 
@@ -538,7 +538,7 @@ public class StyleKitName : NSObject {
         polygonPath.addLine(to: CGPoint(x: 124, y: 127))
         polygonPath.addLine(to: CGPoint(x: 109.88, y: 106))
         polygonPath.close()
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         polygonPath.fill()
     }
 
@@ -551,16 +551,16 @@ public class StyleKitName : NSObject {
         bezier2Path.addLine(to: CGPoint(x: 25.17, y: 72.5))
         bezier2Path.addLine(to: CGPoint(x: 42.5, y: 43.5))
         bezier2Path.addLine(to: CGPoint(x: 30.5, y: 51.5))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         bezier2Path.fill()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier2Path.lineWidth = 1
         bezier2Path.stroke()
 
 
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(rect: CGRect(x: 20, y: 17, width: 11, height: 35))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         rectangle2Path.fill()
     }
 
@@ -570,7 +570,7 @@ public class StyleKitName : NSObject {
 
 
         //// Gradient Declarations
-        let gradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor], locations: [0.01, 1, 1, 1, 1])!
+        let gradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor] as CFArray, locations: [0.01, 1, 1, 1, 1])!
 
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -580,7 +580,7 @@ public class StyleKitName : NSObject {
 
         //// Rectangle Drawing
         context?.saveGState()
-        context?.translate(x: -3.35, y: -3.26)
+        context?.translateBy(x: -3.35, y: -3.26)
 
         let rectanglePath = UIBezierPath(rect: CGRect(x: 3.35, y: 3.26, width: 253, height: 196))
         context?.saveGState()
@@ -590,7 +590,7 @@ public class StyleKitName : NSObject {
 
         ////// Rectangle Inner Shadow
         context?.saveGState()
-        context?.clipTo(rectanglePath.bounds)
+        context?.clip(to: rectanglePath.bounds)
         context?.setShadow(offset: CGSize.zero, blur: 0)
         context?.setAlpha((shadow.shadowColor as! UIColor).cgColor.alpha)
         context?.beginTransparencyLayer(auxiliaryInfo: nil)
@@ -618,13 +618,13 @@ public class StyleKitName : NSObject {
 
         //// Oval 2 Drawing
         let oval2Path = UIBezierPath(ovalIn: CGRect(x: 70, y: 43, width: 35, height: 34))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval2Path.fill()
 
 
         //// Oval 3 Drawing
         let oval3Path = UIBezierPath(ovalIn: CGRect(x: 149, y: 43, width: 35, height: 34))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval3Path.fill()
 
 
@@ -643,14 +643,14 @@ public class StyleKitName : NSObject {
 
         bezierPath.lineJoinStyle = .round;
 
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezierPath.lineWidth = 6
         bezierPath.stroke()
 
 
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier2Path.lineWidth = 1
         bezier2Path.stroke()
 
@@ -662,7 +662,7 @@ public class StyleKitName : NSObject {
         polygonPath.addLine(to: CGPoint(x: 126, y: 118))
         polygonPath.addLine(to: CGPoint(x: 111.88, y: 97))
         polygonPath.close()
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         polygonPath.fill()
     }
 

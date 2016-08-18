@@ -18,10 +18,10 @@ class iPhone5sViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = SentData5s
-        self.textView.layer.backgroundColor = UIColor.white().cgColor
+        self.textView.layer.backgroundColor = UIColor.white.cgColor
         self.textView.layer.cornerRadius = 20
         self.textView.layer.frame = self.textView.layer.frame.insetBy(dx: 20, dy: 20)
-        self.view.backgroundColor = UIColor.red()
+        self.view.backgroundColor = UIColor.red
         // Do any additional setup after loading the view.
         
         

@@ -21,13 +21,13 @@ class TouchIDViewController: UIViewController {
         super.viewDidLoad()
         titleLabel.text = "Touch ID Tutorial"
         imageView.image = UIImage(named: "TouchID.png")
-        imageView.layer.shadowColor = UIColor.black().cgColor
+        imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOffset = CGSize(width: 2, height: 2)
         imageView.layer.shadowRadius = 5
         imageView.layer.shadowOpacity = 0.5
         Description.text = "Step 1: Locate Touch ID & Passcode in Settings"
         subtitle.text = "(Setup)"
-        self.navigationController?.navigationBar.tintColor = UIColor.red()
+        self.navigationController?.navigationBar.tintColor = UIColor.red
         // Do any additional setup after loading the view.
     }
 
@@ -53,7 +53,7 @@ class TouchIDViewController: UIViewController {
          
         } else {
      
-            UIApplication.shared().openURL(NSURL(string:"prefs:root=General")! as URL)
+            UIApplication.shared.openURL(NSURL(string:"prefs:root=General")! as URL)
         }
     }
     @IBAction func Next(_ sender: AnyObject) {

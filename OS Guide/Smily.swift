@@ -28,19 +28,19 @@ class Smily: UIView {
         
         //// Oval 2 Drawing
         let oval2Path = UIBezierPath(ovalIn: CGRect(x: 67, y: 52, width: 35, height: 34))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval2Path.fill()
         
         
         //// Oval 3 Drawing
         let oval3Path = UIBezierPath(ovalIn: CGRect(x: 146, y: 52, width: 35, height: 34))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval3Path.fill()
         
         
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier2Path.lineWidth = 1
         bezier2Path.stroke()
         
@@ -52,13 +52,13 @@ class Smily: UIView {
         polygonPath.addLine(to: CGPoint(x: 126, y: 126))
         polygonPath.addLine(to: CGPoint(x: 113.22, y: 105))
         polygonPath.close()
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         polygonPath.fill()
         
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezierPath.lineWidth = 1
         bezierPath.stroke()
         
@@ -69,24 +69,24 @@ class Smily: UIView {
         bezier4Path.addCurve(to: CGPoint(x: 71.5, y: 50.5), controlPoint1: CGPoint(x: 75.25, y: 48.5), controlPoint2: CGPoint(x: 71.5, y: 50.5))
         bezier4Path.lineCapStyle = .round;
         
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier4Path.lineWidth = 5
         bezier4Path.stroke()
         
         
         //// Bezier 5 Drawing
         context?.saveGState()
-        context?.translate(x: 150, y: 56)
-        context?.rotate(byAngle: -5.89 * CGFloat(M_PI) / 180)
+        context?.translateBy(x: 150, y: 56)
+        context?.rotate(by: -5.89 * CGFloat(M_PI) / 180)
         
         let bezier5Path = UIBezierPath()
         bezier5Path.move(to: CGPoint(x: 1.47, y: -9.4))
         bezier5Path.addCurve(to: CGPoint(x: 30.47, y: -1.4), controlPoint1: CGPoint(x: 37.47, y: -0.4), controlPoint2: CGPoint(x: 30.47, y: -1.4))
         bezier5Path.lineCapStyle = .round;
         
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         bezier5Path.fill()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier5Path.lineWidth = 5
         bezier5Path.stroke()
         
@@ -95,9 +95,9 @@ class Smily: UIView {
         
         //// Bezier 6 Drawing
         let bezier6Path = UIBezierPath()
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         bezier6Path.fill()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier6Path.lineWidth = 5
         bezier6Path.stroke()
         
@@ -125,22 +125,22 @@ class Smily: UIView {
         bezier7Path.addLine(to: CGPoint(x: 180.5, y: 141.48))
         bezier7Path.lineCapStyle = .round;
         
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         bezier7Path.fill()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier7Path.lineWidth = 5
         bezier7Path.stroke()
         
         
         //// Oval 4 Drawing
         let oval4Path = UIBezierPath(ovalIn: CGRect(x: 78, y: 62, width: 14, height: 14))
-        UIColor.blue().setFill()
+        UIColor.blue.setFill()
         oval4Path.fill()
         
         
         //// Oval 5 Drawing
         let oval5Path = UIBezierPath(ovalIn: CGRect(x: 157, y: 62, width: 14, height: 14))
-        UIColor.blue().setFill()
+        UIColor.blue.setFill()
         oval5Path.fill()
     
     }

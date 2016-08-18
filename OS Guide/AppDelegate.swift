@@ -10,34 +10,59 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 import NotificationCenter
+import Fabric
+import Crashlytics
+
 
 @available(iOS 10.0, *)
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-              //Fabric.with([STPAPIClient.self])
-      /*  _ = OneSignal(launchOptions: launchOptions, appId: "7615ff43-b476-4462-a70c-6df461dd5a44", handleNotification: nil)
-            OneSignal.defaultClient().enable(inAppAlertNotification: true)*/
-        UIApplication.shared().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-        UIApplication.shared().registerForRemoteNotifications()
-       if (UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+//       // OneSignal.initWithLaunchOptions(launchOptions, appId: "b2f7f966-d8cc-11e4-bed1-df8f05be55ba") { (result) in
+//            
+//            // This block gets called when the user reacts to a notification received
+//            
+//            let payload = result.notification.payload
+//            let messageTitle = "OneSignal Example"
+//            var fullMessage = payload.title
+//            
+//            //Try to fetch the action selected
+//            if let additionalData = payload.additionalData, let actionSelected = additionalData["actionSelected"] as? String {
+//                fullMessage =  fullMessage + "\nPressed ButtonId:\(actionSelected)"
+//            }
+//            
+//            let alertView = UIAlertView(title: messageTitle, message: fullMessage, delegate: nil, cancelButtonTitle: "Close")
+//            alertView.show()
+//        }
+//        
+//        
         
         
-            UIApplication.shared().statusBarOrientation = .portrait
-            UIApplication.shared().statusBarOrientation = .landscapeLeft
-            UIApplication.shared().statusBarOrientation = .landscapeRight
+        
+        
+        
+        
+        Fabric.with([Crashlytics.self])
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.shared.registerForRemoteNotifications()
+       if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+        
+        
+            UIApplication.shared.statusBarOrientation = .portrait
+            UIApplication.shared.statusBarOrientation = .landscapeLeft
+            UIApplication.shared.statusBarOrientation = .landscapeRight
         
          
         }
         
-        if (UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
+        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
             
-            UIApplication.shared().statusBarOrientation = .portrait
+            UIApplication.shared.statusBarOrientation = .portrait
 
             
         }
@@ -47,37 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
-        
-    }
-    
-    func setNotificationCategories(_ categories: Set<UNNotificationCategory>) {
-        
-        
-        
-        
-        
-    }
-
-    func add(_ request: UNNotificationRequest,  withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil) {
-        
-        let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: "Hello!", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "Hello_message_body", arguments: nil)
-        content.sound = UNNotificationSound.default()
-        
-        // Deliver the notification in five seconds.
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
-        let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
-        
-        // Schedule the notification.
-        let center = UNUserNotificationCenter.current()
-        center.add(request)
-
-        
-        
-    }
-    func applicationWillResignActive(_ application: UIApplication) {
+       func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }

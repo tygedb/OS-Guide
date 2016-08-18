@@ -28,7 +28,7 @@ class ApplePayViewController: UIViewController {
     
     func configureView() {
         
-        if (!self.isViewLoaded()) {
+        if (!self.isViewLoaded) {
             return
         }
         
@@ -43,10 +43,10 @@ class ApplePayViewController: UIViewController {
         super.viewDidLoad()
         
           Free.text = "$ 00.00"
-        Free.textColor = UIColor.black()
+        Free.textColor = UIColor.black
         Title1.text = "Smiley Face!"
         NonPay.setTitle("Pay", for: UIControlState())
-        NonPay.setTitleColor(UIColor.white(), for: UIControlState())
+        NonPay.setTitleColor(UIColor.white, for: UIControlState())
         NonPay.layer.cornerRadius = 5
         ApplePay.layer.cornerRadius = 20
         self.timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(ApplePayViewController.toggleLabelAlpha), userInfo: nil, repeats: true)
@@ -159,11 +159,22 @@ class ApplePayViewController: UIViewController {
     
 
 }
+
 @available(iOS 9.2, *)
+@available(iOS 8.0, *)
+
 extension ApplePayViewController: PKPaymentAuthorizationViewControllerDelegate {
-    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (PKPaymentAuthorizationStatus) -> Void) {
+   
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: ((PKPaymentAuthorizationStatus) -> Void)) {
         
         completion(PKPaymentAuthorizationStatus.success)
+
+    }
+
+    
+    func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController) {
+        let award = self.storyboard!.instantiateViewController(withIdentifier: "PayAward") as! UINavigationController
+        present(award, animated: true, completion: nil)
 
     }
     
@@ -174,6 +185,6 @@ extension ApplePayViewController: PKPaymentAuthorizationViewControllerDelegate {
 
        
     }
-    
+//
 }
 

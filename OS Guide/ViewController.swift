@@ -13,7 +13,7 @@ import UserNotifications
 
 @available(iOS 9.2, *)
 @IBDesignable
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
 
@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func batteryLevel() -> Float {
         
         
-        return UIDevice.current().batteryLevel
+        return UIDevice.current.batteryLevel
     }
     
     
@@ -38,11 +38,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var time: NSDate?
     var isOnScreen = false
     var pickerData: [String] = [String]()
-    let modelName = UIDevice.current().modelName
-    let batteryState = UIDevice.current().batteryState
-    let system = UIDevice.current().systemVersion
-    let system2 = UIDevice.current().orientation.isPortrait
-    let test = UIDevice.current().identifierForVendor
+    let modelName = UIDevice.current.modelName
+    let batteryState = UIDevice.current.batteryState
+    let system = UIDevice.current.systemVersion
+    let system2 = UIDevice.current.orientation.isPortrait
+    let test = UIDevice.current.identifierForVendor
     let orientation = "Orientation: "
     let SupportedPaymentNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex, PKPaymentNetwork.discover, PKPaymentNetwork.privateLabel, PKPaymentNetwork.chinaUnionPay]
     var context: LAContext = LAContext()
@@ -56,37 +56,36 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         background.image = UIImage(named: "Background.png")
         deviceTitle.text = "Device Details:"
         
-        UIDevice.current().isBatteryMonitoringEnabled = true
+        UIDevice.current.isBatteryMonitoringEnabled = true
         PickerView.delegate = self
         PickerView.dataSource = self
         self.deviceView.layer.backgroundColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1).cgColor
         self.deviceView.layer.cornerRadius = 10
         self.deviceView.layer.frame = self.deviceView.layer.frame.insetBy(dx: 20, dy: 20)
         Welcome.text = "OS Guide"
-        Welcome.textColor = UIColor.black()
-        var array = ["Tutorials:", "AirPlay", "AirPrint"]
+        Welcome.textColor = UIColor.black
+        var array = ["Tutorials:", "AirPlay", "AirPrint", "AirDrop"]
         
-        if (UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
+        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
             
             Device.text = "Model: \(modelName)"
             Device1.text = "Battery: \(batteryLevel() * 100)%"
             systemLabel.text = "Version: iOS \(system)"
-            UIApplication.shared().statusBarOrientation = .portrait
+            UIApplication.shared.statusBarOrientation = .portrait
             
-        } else if (UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+        } else if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
             
             Device.text = "Model: \(modelName)"
             Device1.text = "Battery: \(batteryLevel() * 100)%"
             systemLabel.text = "Version: iOS \(system)"
             systemLabel2.text = "Orientation: \(system2)"
-            UIApplication.shared().statusBarOrientation = .portrait
-            UIApplication.shared().statusBarOrientation = .landscapeLeft
-            UIApplication.shared().statusBarOrientation = .landscapeRight
+            UIApplication.shared.statusBarOrientation = .portrait
+            UIApplication.shared.statusBarOrientation = .landscapeLeft
+            UIApplication.shared.statusBarOrientation = .landscapeRight
 
-            
         }
         
-        if UIDevice.current().orientation.isPortrait {
+        if UIDevice.current.orientation.isPortrait {
             
             systemLabel2.text = orientation + "Portrait"
             
@@ -98,7 +97,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         
-        if UIDevice.current().orientation.isFlat {
+        if UIDevice.current.orientation.isFlat {
             
             
             systemLabel2.text = orientation + "Flat"
@@ -106,7 +105,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         
-        if (UIDevice.current().batteryState == UIDeviceBatteryState.full) {
+        if (UIDevice.current.batteryState == UIDeviceBatteryState.full) {
             
             Device.text = "100%"
             
@@ -134,12 +133,37 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         
-        
-        if (UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
+        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
+            
             array.append("Devices:")
             array.append("iPhone 5")
+            array.append("iPhone 5c")
             array.append("iPhone 5s")
-        } else if (UIDevice.current().userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+            array.append("iPhone SE")
+            array.append("iPhone 6")
+            array.append("iPhone 6 Plus")
+            array.append("iPhone 6s")
+            array.append("iPhone 6s Plus")
+            array.append("iPhone 7")
+            array.append("iPhone 7 Plus")
+            array.append("Apple Watch")
+            array.append("iPod 5G")
+            array.append("iPod 6G")
+            
+        } else if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
+            
+            array.append("Devices:")
+            array.append("iPad 2")
+            array.append("iPad 3")
+            array.append("iPad 4")
+            array.append("iPad Air")
+            array.append("iPad Air 2")
+            array.append("iPad Pro 9.7")
+            array.append("iPad Pro 12.9")
+            array.append("iPad Mini")
+            array.append("iPad Mini 2")
+            array.append("iPad Mini 3")
+            array.append("iPad Mini 4")
 
         }
         
@@ -252,8 +276,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
     }
-    
-    
 
 }
 
@@ -298,5 +320,3 @@ public extension UIDevice {
     }
     
 }
-
-

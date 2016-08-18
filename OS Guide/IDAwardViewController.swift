@@ -21,7 +21,7 @@ class IDAwardViewController: UIViewController {
         label1.text = " You can use Touch ID in the App Store."
         label2.text = " Use Touch ID in many Apps."
         label3.text = " You can also use Touch ID to purchase items in store or In-App using Pay"
-        self.InfoView.layer.backgroundColor = UIColor.white().cgColor
+        self.InfoView.layer.backgroundColor = UIColor.white.cgColor
         self.InfoView.layer.cornerRadius = 20
         self.InfoView.layer.frame = self.InfoView.layer.frame.insetBy(dx: 20, dy: 20)
 

@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
-    let settings = ["About this iPhone"]
+    let settings = ["About", "Support", "Like us on Facebook", "Like us on Twitter"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "Settings") as! TableViewCell
+        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         
         cell.Settings1.text = settings[indexPath.row]
         

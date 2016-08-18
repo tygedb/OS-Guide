@@ -24,8 +24,8 @@ class Award: UIView {
         let redGradient2Color = UIColor(red: 0.169, green: 0.184, blue: 0.212, alpha: 1.000)
         
         //// Gradient Declarations
-        let redGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor, StyleKitName.ellipse1Color.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor], locations: [0.01, 1, 1, 1, 1])!
-        let redGradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [redGradient2Color.cgColor, redGradient2Color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor, StyleKitName.ellipse1Color.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor], locations: [0.01, 1, 1, 1, 1])!
+        let redGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor, StyleKitName.ellipse1Color.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor] as CFArray, locations: [0.01, 1, 1, 1, 1])!
+        let redGradient2 = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [redGradient2Color.cgColor, redGradient2Color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor, StyleKitName.ellipse1Color.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor] as CFArray, locations: [0.01, 1, 1, 1, 1])!
         
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -317,12 +317,12 @@ class Award: UIView {
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
         
-        let textFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelSize()), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelFontSize), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
         
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         let textTextRect: CGRect = CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight)
         context!.saveGState()
-        context!.clipTo(textRect)
+        context!.clip(to: textRect)
         textTextContent.draw(in: textRect, withAttributes: textFontAttributes)
         context!.restoreGState()
         
@@ -330,7 +330,7 @@ class Award: UIView {
         
         
         context!.saveGState()
-        context!.clipTo(textRect)
+        context!.clip(to: textRect)
         context!.setShadow(offset: CGSize.zero, blur: 0)
         context!.setAlpha((shadow.shadowColor as! UIColor).cgColor.alpha)
         context!.beginTransparencyLayer(auxiliaryInfo: nil)
@@ -341,7 +341,7 @@ class Award: UIView {
         
         textOpaqueTextShadow.setFill()
         
-        let textInnerShadowFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelSize()), NSForegroundColorAttributeName: (shadow.shadowColor as! UIColor), NSParagraphStyleAttributeName: textStyle]
+        let textInnerShadowFontAttributes = [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.labelFontSize), NSForegroundColorAttributeName: (shadow.shadowColor as! UIColor), NSParagraphStyleAttributeName: textStyle]
         textTextContent.draw(in: textTextRect, withAttributes: textInnerShadowFontAttributes)
         
         context!.endTransparencyLayer()

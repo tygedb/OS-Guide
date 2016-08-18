@@ -14,11 +14,11 @@ class AboutThisiPhoneViewController: UIViewController {
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
     @IBOutlet weak var label4: UILabel!
-    let modelName2 = UIDevice.current().modelName2
-    let multitasking = UIDevice.current().isMultitaskingSupported
-    let batterymon = UIDevice.current().isBatteryMonitoringEnabled
-    let bS = UIDevice.current().batteryState
-    let bs = UIDevice.current().orientation
+    let modelName2 = UIDevice.current.modelName2
+    let multitasking = UIDevice.current.isMultitaskingSupported
+    let batterymon = UIDevice.current.isBatteryMonitoringEnabled
+    let bS = UIDevice.current.batteryState
+    let bs = UIDevice.current.orientation
     
     override func viewDidLoad() {
         super.viewDidLoad()

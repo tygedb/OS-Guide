@@ -63,11 +63,11 @@ class iPhone5TableViewController: UITableViewController {
        // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "DetailView") {
             
-            let VC = segue.destinationViewController as! iPhone5ViewController
+            let VC = segue.destination as! iPhone5ViewController
             if let indexpath = self.tableView.indexPathForSelectedRow {
                 
                 let Title = iPhone5List[(indexpath as NSIndexPath).row] as String
@@ -82,14 +82,14 @@ class iPhone5TableViewController: UITableViewController {
             
             
             
-            
+           
             
         }
    
         
     }
     func loadTitle() {
-        if let path = Bundle.main.pathForResource("Property List", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "Property List", ofType: "plist") {
             iPnone5 = NSMutableArray(contentsOfFile: path)
             
         }

@@ -17,7 +17,7 @@ class AirPrint: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         airPrintLabel.text = "AirPrint"
-        airPrintLabel.textColor = UIColor.red()
+        airPrintLabel.textColor = UIColor.red
         textView.insertText("AirPrint was developed by Apple in 2010, Apple's introduction of iOS 4.2 gave iOS Devices the ability to print. At launch there were 12 compatible, all of them were manufactured by HP. Now there are apps that you can download from the App Store to print to a non-enabled printer.")
         // Do any additional setup after loading the view.
     }
@@ -29,7 +29,7 @@ class AirPrint: UIViewController {
     
     @IBAction func Print(_ sender: AnyObject) {
         
-        let printController = UIPrintInteractionController.shared()
+        let printController = UIPrintInteractionController.shared
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.outputType = UIPrintInfoOutputType.general
         printInfo.jobName = "AirPrint Tutorial"

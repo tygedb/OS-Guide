@@ -19,7 +19,7 @@ class Settings: UIButton {
         
         
         //// Gradient Declarations
-        let redGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor], locations: [0.01, 1, 1, 1, 1])!
+        let redGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [StyleKitName.red.cgColor, StyleKitName.red.blendedColorWithFraction(0.5, ofColor: StyleKitName.color).cgColor, StyleKitName.color.cgColor, StyleKitName.color.blendedColorWithFraction(0.5, ofColor: StyleKitName.ellipse1Color).cgColor, StyleKitName.ellipse1Color.cgColor] as CFArray, locations: [0.01, 1, 1, 1, 1])!
         
         //// Shadow Declarations
         let shadow = NSShadow()
@@ -29,7 +29,7 @@ class Settings: UIButton {
         
         //// Rectangle Drawing
         context?.saveGState()
-        context?.translate(x: -3.35, y: -3.26)
+        context?.translateBy(x: -3.35, y: -3.26)
         
         let rectanglePath = UIBezierPath(rect: CGRect(x: 3.35, y: 3.26, width: 253, height: 196))
         context?.saveGState()
@@ -39,7 +39,7 @@ class Settings: UIButton {
         
         ////// Rectangle Inner Shadow
         context?.saveGState()
-        context?.clipTo(rectanglePath.bounds)
+        context?.clip(to: rectanglePath.bounds)
         context?.setShadow(offset: CGSize.zero, blur: 0)
         context?.setAlpha((shadow.shadowColor as! UIColor).cgColor.alpha)
         context?.beginTransparencyLayer(auxiliaryInfo: nil)
@@ -61,7 +61,7 @@ class Settings: UIButton {
         
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier2Path.lineWidth = 1
         bezier2Path.stroke()
         
@@ -72,11 +72,11 @@ class Settings: UIButton {
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
         
-        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize()), NSForegroundColorAttributeName: UIColor.black(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
         
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         context?.saveGState()
-        context?.clipTo(textRect)
+        context?.clip(to: textRect)
         textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
         context?.restoreGState()
 

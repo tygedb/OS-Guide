@@ -22,7 +22,7 @@ class AirPlay: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = "AirPlay"
-        titleLabel.textColor = UIColor.red()
+        titleLabel.textColor = UIColor.red
         tutorial.allowsExternalPlayback = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 9

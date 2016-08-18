@@ -28,10 +28,10 @@ class iPhone5ViewController: UIViewController, UIScrollViewDelegate {
         configurePageControl()
         titleLabel.text = SentData
         imageView.image = UIImage(named: SentData2)
-        self.textView.layer.backgroundColor = UIColor.white().cgColor
+        self.textView.layer.backgroundColor = UIColor.white.cgColor
         self.textView.layer.cornerRadius = 20
         self.textView.layer.frame = self.textView.layer.frame.insetBy(dx: 20, dy: 20)
-        self.view.backgroundColor = UIColor.red()
+        self.view.backgroundColor = UIColor.red
         scrollView.delegate = self
         self.view.addSubview(scrollView)
         for index in 0..<4 {
@@ -68,9 +68,9 @@ class iPhone5ViewController: UIViewController, UIScrollViewDelegate {
         
         self.pageControl.numberOfPages = 4
         self.pageControl.currentPage = 0
-        self.pageControl.tintColor = UIColor.red()
-        self.pageControl.pageIndicatorTintColor = UIColor.black()
-        self.pageControl.currentPageIndicatorTintColor = UIColor.white()
+        self.pageControl.tintColor = UIColor.red
+        self.pageControl.pageIndicatorTintColor = UIColor.black
+        self.pageControl.currentPageIndicatorTintColor = UIColor.white
         self.view.addSubview(pageControl)
         
     }

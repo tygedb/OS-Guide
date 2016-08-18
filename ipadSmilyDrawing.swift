@@ -26,13 +26,13 @@ class ipadSmilyDrawing: UIView {
         
         //// Oval 3 Drawing
         let oval3Path = UIBezierPath(ovalIn: CGRect(x: 247, y: 116, width: 68, height: 70))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval3Path.fill()
         
         
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier2Path.lineWidth = 1
         bezier2Path.stroke()
         
@@ -44,13 +44,13 @@ class ipadSmilyDrawing: UIView {
         polygonPath.addLine(to: CGPoint(x: 225, y: 264))
         polygonPath.addLine(to: CGPoint(x: 203.11, y: 233))
         polygonPath.close()
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         polygonPath.fill()
         
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezierPath.lineWidth = 1
         bezierPath.stroke()
         
@@ -61,17 +61,17 @@ class ipadSmilyDrawing: UIView {
         bezier4Path.addCurve(to: CGPoint(x: 140.5, y: 116.5), controlPoint1: CGPoint(x: 163.53, y: 100.5), controlPoint2: CGPoint(x: 140.5, y: 116.5))
         bezier4Path.lineCapStyle = .round;
         
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier4Path.lineWidth = 5
         bezier4Path.stroke()
         
         
         //// Bezier 6 Drawing
         let bezier6Path = UIBezierPath()
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         bezier6Path.fill()
        
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier6Path.lineWidth = 5
         bezier6Path.stroke()
         
@@ -98,28 +98,28 @@ class ipadSmilyDrawing: UIView {
         bezier7Path.addLine(to: CGPoint(x: 292.5, y: 279.48))
         bezier7Path.lineCapStyle = .round;
         
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         bezier7Path.fill()
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier7Path.lineWidth = 5
         bezier7Path.stroke()
         
         
         //// Oval 5 Drawing
         let oval5Path = UIBezierPath(ovalIn: CGRect(x: 266, y: 138, width: 30, height: 26))
-        UIColor.blue().setFill()
+        UIColor.blue.setFill()
         oval5Path.fill()
         
         
         //// Oval 2 Drawing
         let oval2Path = UIBezierPath(ovalIn: CGRect(x: 137, y: 116, width: 68, height: 70))
-        UIColor.black().setFill()
+        UIColor.black.setFill()
         oval2Path.fill()
         
         
         //// Oval 4 Drawing
         let oval4Path = UIBezierPath(ovalIn: CGRect(x: 155, y: 138, width: 30, height: 26))
-        UIColor.blue().setFill()
+        UIColor.blue.setFill()
         oval4Path.fill()
         
         
@@ -131,7 +131,7 @@ class ipadSmilyDrawing: UIView {
         bezier8Path.addCurve(to: CGPoint(x: 262.5, y: 100.5), controlPoint1: CGPoint(x: 275.68, y: 98.83), controlPoint2: CGPoint(x: 262.5, y: 100.5))
         bezier8Path.lineCapStyle = .round;
         
-        UIColor.black().setStroke()
+        UIColor.black.setStroke()
         bezier8Path.lineWidth = 5
         bezier8Path.stroke()
 

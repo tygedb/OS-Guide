@@ -18,10 +18,10 @@ class IDLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginLabel.text = "Touch ID Tutorial"
-        loginLabel.textColor = UIColor.black()
-        loginButton.tintColor = UIColor.black()
+        loginLabel.textColor = UIColor.black
+        loginButton.tintColor = UIColor.black
        loginButton.setTitle("Login", for: UIControlState.application)
-        loginButton.setTitleColor(UIColor.black(), for: UIControlState.application)
+        loginButton.setTitleColor(UIColor.black, for: UIControlState.application)
         self.authenticateUser()
         // Do any additional setup after loading the view.
     }
@@ -65,7 +65,7 @@ class IDLoginViewController: UIViewController {
                 }
                 else
                 {
-                    switch policyError!.code
+                    switch policyError!._code
                     {
                     case LAError.systemCancel.rawValue:
                         print("Authentication was cancelled by the system.")
